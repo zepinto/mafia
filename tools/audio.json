@@ -1,0 +1,20 @@
+{
+  "sfx": {
+    "flip": {"prompt": "A single playing card flipped over onto a felt card table: one crisp paper snap followed by a soft bright chime. Clean, close, no reverb.", "seconds": 1.0},
+    "warn": {"prompt": "A short harsh game-show buzzer, two low electric buzzes, wrong answer. Dry, close.", "seconds": 0.8},
+    "blip": {"prompt": "One soft muted wooden click, like a single typewriter key pressed gently. Very short, dry.", "seconds": 0.5, "gain": -4},
+    "night": {"prompt": "Night falls over a small old town: one deep distant church bell toll, then crickets and a single owl hoot.", "seconds": 3.0},
+    "dawn": {"prompt": "A rooster crowing at dawn, with bright morning birdsong behind it.", "seconds": 2.5},
+    "death": {"prompt": "Dramatic murder mystery reveal sting: a low orchestral hit with a dark cello slide down and a timpani boom.", "seconds": 2.5},
+    "saved": {"prompt": "A bright magical shimmer with a rising harp glissando, a sense of relief. Short.", "seconds": 2.0},
+    "out": {"prompt": "A single heavy wooden judge's gavel strike on a sound block, with a short low boom.", "seconds": 1.2},
+    "bell": {"prompt": "A boxing ring bell ringing twice, time's up.", "seconds": 1.6},
+    "town_wins": {"prompt": "A short triumphant brass fanfare with a small crowd cheering and clapping. Victory.", "seconds": 3.5},
+    "mafia_wins": {"prompt": "A sinister 1930s gangster film ending sting: low muted brass and a dark piano chord, ominous and final.", "seconds": 3.5}
+  },
+  "music": {
+    "lobby": {"prompt": "1930s film noir jazz for a game menu: smoky muted trumpet, walking upright bass, brushed drums and soft piano. Mysterious but playful, steady mid tempo, no big build-ups or endings, instrumental.", "seconds": 75},
+    "night": {"prompt": "Dark ambient night music for a party game while players take secret turns: slow, quiet and tense. Low string drone, soft pizzicato, sparse distant piano notes, a ticking clock feel. Minimal, steady, no climax, instrumental.", "seconds": 75},
+    "day": {"prompt": "Upbeat tense swing jazz underscore for a lively argument in a small 1930s town: pizzicato double bass, clarinet, brushed snare, playful suspense, steady mid tempo, no big ending, instrumental, quiet enough to talk over.", "seconds": 75}
+  }
+}

@@ -1,0 +1,12 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <group android:scaleX="0.62" android:scaleY="0.62" android:pivotX="54" android:pivotY="56">
+        <!-- a fedora with a red band -->
+        <path android:fillColor="#FFFFFFFF" android:pathData="M26,64 C26,48 28,36 38,34 C45,33 48,40 54,40 C60,40 63,33 70,34 C80,36 82,48 82,64 Z" />
+        <path android:fillColor="#FFE5383B" android:pathData="M25,54 h58 v9 h-58 z" />
+        <path android:fillColor="#FFFFFFFF" android:pathData="M8,62 C24,72 84,72 100,62 C96,76 80,82 54,82 C28,82 12,76 8,62 Z" />
+    </group>
+</vector>
