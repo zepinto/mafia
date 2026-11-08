@@ -50,7 +50,7 @@ The 🎵 button on the first screen turns the music off. The sound effects stay 
 
 ## Build
 
-Requires JDK 17 and the Android SDK (platform 35).
+Requires JDK 17 and the Android SDK (platform 36).
 
 ```
 ./gradlew testDebugUnitTest        # rules tests
@@ -59,6 +59,29 @@ Requires JDK 17 and the Android SDK (platform 35).
 ```
 
 The release build is signed with the debug key, which is fine for sideloading.
+
+## Google Play
+
+Google Play takes an App Bundle signed with the upload key:
+
+```sh
+./gradlew bundleRelease -Pplay    # → app/build/outputs/bundle/release/app-release.aab
+```
+
+`-Pplay` reads the key from these entries in `~/.gradle/gradle.properties`, which is outside the repo:
+
+```properties
+mafia.upload.storeFile=/home/you/.android/mafia-upload.jks
+mafia.upload.storePassword=...
+mafia.upload.keyAlias=upload
+mafia.upload.keyPassword=...
+```
+
+Google re-signs the app for the store (Play App Signing). If the upload key is lost, it can be reset in the Play
+Console. The Play version and a sideloaded APK have different signatures, so switching from one to the other means
+uninstalling first. Raise `versionCode` in `app/build.gradle.kts` for every upload.
+
+The privacy policy for the store listing is [PRIVACY.md](PRIVACY.md).
 
 ## Layout
 

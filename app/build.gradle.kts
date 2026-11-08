@@ -6,23 +6,39 @@ plugins {
 
 android {
     namespace = "com.zepinto.mafia"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.zepinto.mafia"
         minSdk = 26
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
         // Screenshots are blocked by default so nobody can capture a role card. `-PallowScreenshots` lifts that for emulator test builds.
         buildConfigField("boolean", "SECURE_WINDOW", "${!project.hasProperty("allowScreenshots")}")
     }
 
+    // Google Play build: `./gradlew bundleRelease -Pplay` signs the App Bundle with the upload key named by
+    // mafia.upload.* in ~/.gradle/gradle.properties (outside the repo). Without -Pplay the release is signed with
+    // the debug key, so a sideloaded APK keeps updating the copies people already installed.
+    val play = project.hasProperty("play")
+    if (play) {
+        signingConfigs {
+            create("upload") {
+                fun prop(name: String) = project.findProperty("mafia.upload.$name")?.toString()
+                    ?: throw GradleException("-Pplay needs mafia.upload.$name in ~/.gradle/gradle.properties")
+                storeFile = file(prop("storeFile"))
+                storePassword = prop("storePassword")
+                keyAlias = prop("keyAlias")
+                keyPassword = prop("keyPassword")
+            }
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
-            // Signed with the debug key so the APK can be sideloaded as it is. Use your own keystore for a Play Store upload.
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = signingConfigs.getByName(if (play) "upload" else "debug")
         }
     }
     compileOptions {
